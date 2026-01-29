@@ -1,0 +1,62 @@
+/* global.css */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.dashboard-container {
+  background-color: #f4f7f6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.dashboard-card {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  max-width: 500px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover {
+  transform: translateY(-5px);
+}
+
+.dashboard-heading {
+  color: #00d8ff; /* Clean React Cyan */
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f0f0f0;
+  padding-bottom: 10px;
+}
+
+.dashboard-text {
+  color: #444;
+  line-height: 1.6;
+  font-size: 1.1rem;
+  margin-bottom: 20px;
+}
+
+.quote-text {
+  color: #666;
+  font-style: italic;
+  border-left: 4px solid #00d8ff;
+  padding-left: 15px;
+  margin-top: 25px;
+  text-align: left;
+}
+
+.quote-author {
+  display: block;
+  margin-top: 8px;
+  font-weight: bold;
+  font-style: normal;
+  color: #333;
+}
