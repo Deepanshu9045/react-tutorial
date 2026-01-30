@@ -1,18 +1,27 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import Dashboard from "../Pages/Dashboard";
-import Page1 from "../Pages/Page1";
+import HelloWorld from "../Pages/HelloWorld";
 import Page2 from "../Pages/Page2";
 
 const Layout = () => {
-  const [activePage, setActivePage] = useState("dashboard");
+
+  // Load saved page OR default dashboard
+  const [activePage, setActivePage] = useState(() => {
+    return localStorage.getItem("activePage") || "dashboard";
+  });
+
+  // Save page whenever it changes
+  useEffect(() => {
+    localStorage.setItem("activePage", activePage);
+  }, [activePage]);
 
   const renderPage = () => {
     switch (activePage) {
       case "dashboard":
         return <Dashboard />;
-      case "page1":
-        return <Page1 />;
+      case "HelloWorld":
+        return <HelloWorld />;
       case "page2":
         return <Page2 />;
       default:

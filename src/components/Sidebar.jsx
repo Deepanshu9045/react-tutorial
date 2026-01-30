@@ -4,7 +4,7 @@ import "./Sidebar.css";
 const Sidebar = ({ setActivePage, activePage }) => {
   const menuItems = [
     { name: "Dashboard", key: "dashboard" },
-    { name: "Page1", key: "page1" },
+    { name: "HelloWorld", key: "HelloWorld" },
     { name: "Page2", key: "page2" },
   ];
 
