@@ -7,6 +7,9 @@ import JSXExpressions from "../Pages/JSXExpressions";
 import JSXAttributes from "../Pages/JSXAttributes";
 import JSXIfStatements from "../Pages/JSXIfStatements";
 import ReactComponents from "../Pages/ReactComponents";
+import ReactClassComponents from "../Pages/ReactClassComponents";
+import ReactProps from "../Pages/ReactProps";
+import ReactDestructuringProps from "../Pages/ReactDestructuringProps";
 
 const Layout = () => {
 
@@ -36,6 +39,12 @@ const Layout = () => {
         return <JSXIfStatements />;
       case "ReactComponents":
         return <ReactComponents />;
+      case "ReactClassComponents":
+        return <ReactClassComponents />;
+      case "ReactProps":
+        return <ReactProps />;
+      case "ReactDestructuringProps":
+        return <ReactDestructuringProps />;
       default:
         return <Dashboard />;
     }

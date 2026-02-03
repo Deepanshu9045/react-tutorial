@@ -10,6 +10,9 @@ const Sidebar = ({ setActivePage, activePage }) => {
     { name: "JSX Attributes", key: "JSXAttributes" },
     { name: "JSX If Statements", key: "JSXIfStatements" },
     { name: "React Components", key: "ReactComponents" },
+    { name: "React Class Components", key: "ReactClassComponents" },
+    { name: "React Props", key: "ReactProps" },
+    { name: "React Destructuring Props", key: "ReactDestructuringProps" },
   ];
 
   return (
