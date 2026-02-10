@@ -10,6 +10,7 @@ import ReactComponents from "../Pages/ReactComponents";
 import ReactClassComponents from "../Pages/ReactClassComponents";
 import ReactProps from "../Pages/ReactProps";
 import ReactDestructuringProps from "../Pages/ReactDestructuringProps";
+import ReactChildrenAndEvents from "../Pages/ReactChildrenAndEvents";
 
 const Layout = () => {
 
@@ -45,6 +46,8 @@ const Layout = () => {
         return <ReactProps />;
       case "ReactDestructuringProps":
         return <ReactDestructuringProps />;
+      case "ReactChildrenAndEvents":
+        return <ReactChildrenAndEvents/>;
       default:
         return <Dashboard />;
     }
