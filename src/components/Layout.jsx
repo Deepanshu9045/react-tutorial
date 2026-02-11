@@ -11,6 +11,11 @@ import ReactClassComponents from "../Pages/ReactClassComponents";
 import ReactProps from "../Pages/ReactProps";
 import ReactDestructuringProps from "../Pages/ReactDestructuringProps";
 import ReactChildrenAndEvents from "../Pages/ReactChildrenAndEvents";
+import ReactEvents from "../Pages/ReactEvents";
+import ReactConditionalRendering from "../Pages/ReactConditionalRendering";
+import ReactForm from "../Pages/ReactForm";
+import ReactFormSubmit from "../Pages/ReactFormSubmit";
+import ReactLists from "../Pages/ReactLists";
 
 const Layout = () => {
 
@@ -48,6 +53,16 @@ const Layout = () => {
         return <ReactDestructuringProps />;
       case "ReactChildrenAndEvents":
         return <ReactChildrenAndEvents/>;
+      case "ReactEvents":
+         return <ReactEvents/>
+      case "ReactConditionalRendering":
+        return <ReactConditionalRendering/>
+      case "ReactForm":
+        return <ReactForm/>
+      case "ReactFormSubmit":
+        return <ReactFormSubmit/>
+      case "ReactLists":
+        return <ReactLists/>
       default:
         return <Dashboard />;
     }

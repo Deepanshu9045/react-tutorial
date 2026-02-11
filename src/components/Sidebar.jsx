@@ -13,7 +13,12 @@ const Sidebar = ({ setActivePage, activePage }) => {
     { name: "React Class Components", key: "ReactClassComponents" },
     { name: "React Props", key: "ReactProps" },
     { name: "React Destructuring Props", key: "ReactDestructuringProps" },
-    { name: "React Children And Events", key: "ReactChildrenAndEvents"}
+    { name: "React Children And Events", key: "ReactChildrenAndEvents"},
+    { name: "React Events", key: "ReactEvents"},
+    { name: "React Conditional Rendering", key: "ReactConditionalRendering"},
+    { name: "React Form", key: "ReactForm"},
+    {name: "React Form Submit", key: "ReactFormSubmit"},
+    { name: "React Lists", key: "ReactLists"}
   ];
 
   return (
