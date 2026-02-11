@@ -1,15 +1,19 @@
 .sidebar {
-    position: sticky;
+  position: sticky;
   top: 0;
   width: 220px;
   height: 100vh;
   background-color: #0f172a;
   color: white;
   padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .logo {
   margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .sidebar-item {
@@ -17,7 +21,7 @@
   margin-bottom: 10px;
   cursor: pointer;
   border-radius: 6px;
-  transition: 0.3s;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 .sidebar-item:hover {
@@ -27,4 +31,22 @@
 .sidebar-item.active {
   background-color: #38bdf8;
   color: black;
+}
+
+/* Optional: Modern thin scrollbar */
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 10px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
 }
