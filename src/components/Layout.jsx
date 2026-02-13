@@ -14,8 +14,10 @@ import ReactChildrenAndEvents from "../Pages/ReactChildrenAndEvents";
 import ReactEvents from "../Pages/ReactEvents";
 import ReactConditionalRendering from "../Pages/ReactConditionalRendering";
 import ReactForm from "../Pages/ReactForm";
-import ReactFormSubmit from "../Pages/ReactFormSubmit";
+import ReactFormSElements from "../Pages/ReactFormElements";
 import ReactLists from "../Pages/ReactLists";
+import ReactPortalSuspense from "../Pages/ReactPortalSuspense";
+import ReactRouterTransitions from "../Pages/ReactRouterTransitions";
 
 const Layout = () => {
 
@@ -57,12 +59,16 @@ const Layout = () => {
          return <ReactEvents/>
       case "ReactConditionalRendering":
         return <ReactConditionalRendering/>
-      case "ReactForm":
-        return <ReactForm/>
-      case "ReactFormSubmit":
-        return <ReactFormSubmit/>
       case "ReactLists":
         return <ReactLists/>
+      case "ReactForm":
+        return <ReactForm/>
+      case "ReactFormSElements":
+        return <ReactFormSElements/>
+      case "ReactPortalSuspense":
+        return <ReactPortalSuspense/>
+      case "ReactRouterTransitions":
+        return <ReactRouterTransitions/>
       default:
         return <Dashboard />;
     }
