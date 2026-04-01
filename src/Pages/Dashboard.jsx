@@ -5,6 +5,7 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <div className="dashboard-card">
+        <span className="dashboard-kicker">Welcome aboard</span>
         <h1 className="dashboard-heading">React Tutorial</h1>
         
         <p className="dashboard-text">

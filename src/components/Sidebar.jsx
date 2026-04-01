@@ -24,21 +24,40 @@ const Sidebar = ({ setActivePage, activePage }) => {
   ];
 
   return (
-    <div className="sidebar">
-      <h2 className="logo">React Tutorial</h2>
+    <aside className="sidebar">
+      <div className="sidebar__brand">
+        <div className="sidebar__eyebrow">Frontend Lab</div>
+        <h2 className="sidebar__logo">React Tutorial</h2>
+        <p className="sidebar__description">
+          Learn the core pieces of React through small, focused examples.
+        </p>
+      </div>
 
-      {menuItems.map((item) => (
-        <div
-          key={item.key}
-          className={`sidebar-item ${
-            activePage === item.key ? "active" : ""
-          }`}
-          onClick={() => setActivePage(item.key)}
-        >
-          {item.name}
-        </div>
-      ))}
-    </div>
+      <div className="sidebar__section-label">Lessons</div>
+
+      <nav className="sidebar__nav">
+        {menuItems.map((item, index) => (
+          <button
+            key={item.key}
+            type="button"
+            className={`sidebar-item ${
+              activePage === item.key ? "active" : ""
+            }`}
+            onClick={() => setActivePage(item.key)}
+          >
+            <span className="sidebar-item__index">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <span>{item.name}</span>
+          </button>
+        ))}
+      </nav>
+
+      <div className="sidebar__footer">
+        <span className="sidebar__footer-label">Current view</span>
+        <strong>{menuItems.find((item) => item.key === activePage)?.name}</strong>
+      </div>
+    </aside>
   );
 };
 

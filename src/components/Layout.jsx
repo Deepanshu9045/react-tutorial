@@ -75,12 +75,14 @@ const Layout = () => {
   };
 
   return (
-    <div style={{ display: "flex" }}>
+    <div className="app-shell">
       <Sidebar activePage={activePage} setActivePage={setActivePage} />
 
-      <div style={{ flex: 1, padding: "20px" }}>
-        {renderPage()}
-      </div>
+      <main className="app-main">
+        <div className="app-main__glow app-main__glow--one" />
+        <div className="app-main__glow app-main__glow--two" />
+        <div className="app-content">{renderPage()}</div>
+      </main>
     </div>
   );
 };
