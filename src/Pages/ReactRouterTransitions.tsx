@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useTransition } from "react";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 /* ------------------------------------------------------------------ */
@@ -39,8 +39,17 @@ function FakeRoutes({ route }: { route: string }) {
 function ReactRouterTransitions() {
   const [route, setRoute] = useState("/");
 
-  // IMPORTANT → required for React 18+
+  // React 18 transition hook
+  const [isPending, startTransition] = useTransition();
+
+  // required for react-transition-group with React 18+
   const nodeRef = useRef<HTMLDivElement>(null);
+
+  const handleRouteChange = (nextRoute: string) => {
+    startTransition(() => {
+      setRoute(nextRoute);
+    });
+  };
 
   const examples = [
     {
@@ -50,7 +59,7 @@ function ReactRouterTransitions() {
       code: `setRoute("/about");`,
       output: (
         <div>
-          <Nav setRoute={setRoute} />
+          <Nav onNavigate={handleRouteChange} />
 
           <div style={{ marginTop: 20 }}>
             <FakeRoutes route={route} />
@@ -66,7 +75,7 @@ function ReactRouterTransitions() {
       code: `key={route}`,
       output: (
         <div>
-          <Nav setRoute={setRoute} />
+          <Nav onNavigate={handleRouteChange} />
 
           <div style={{ marginTop: 20, minHeight: 40 }}>
             <TransitionGroup component={null}>
@@ -86,6 +95,71 @@ function ReactRouterTransitions() {
         </div>
       ),
     },
+
+    {
+      title: "3. useTransition Concept",
+      description:
+        "useTransition lets React treat navigation as a low-priority update so urgent UI stays responsive.",
+      code: `startTransition(() => {
+  setRoute("/about");
+});`,
+      output: (
+        <div>
+          <Nav onNavigate={handleRouteChange} />
+
+          <div style={{ marginTop: 16 }}>
+            <strong>Status:</strong>{" "}
+            {isPending ? "Loading next page..." : "Page ready"}
+          </div>
+
+          <div style={{ marginTop: 20, minHeight: 40 }}>
+            <TransitionGroup component={null}>
+              <CSSTransition
+                key={route}
+                timeout={300}
+                classNames="fade"
+                nodeRef={nodeRef}
+                unmountOnExit
+              >
+                <div ref={nodeRef}>
+                  <FakeRoutes route={route} />
+                </div>
+              </CSSTransition>
+            </TransitionGroup>
+          </div>
+        </div>
+      ),
+    },
+
+    {
+      title: "4. When to Use Transitions",
+      description:
+        "Use transitions when switching pages, filtering big lists, searching, or rendering expensive UI. Avoid them for instant field updates like typing in an input.",
+      code: `Good use cases:
+- route changes
+- tab changes
+- large list filtering
+- search results
+- charts / heavy UI rendering
+
+Avoid:
+- controlled input typing
+- checkbox toggle
+- urgent error display`,
+      output: (
+        <div>
+          <ul style={{ lineHeight: 1.8, paddingLeft: 20 }}>
+            <li>✅ Route changes</li>
+            <li>✅ Tab changes</li>
+            <li>✅ Search results</li>
+            <li>✅ Large filtered lists</li>
+            <li>✅ Heavy components</li>
+            <li>❌ Typing in inputs</li>
+            <li>❌ Small instant UI updates</li>
+          </ul>
+        </div>
+      ),
+    },
   ];
 
   return (
@@ -93,8 +167,9 @@ function ReactRouterTransitions() {
       <h1>React Router & Transition Concepts</h1>
 
       <p>
-        This tutorial demonstrates how navigation and page animations work
-        internally without changing the browser URL.
+        This tutorial demonstrates navigation, animation, and how{" "}
+        <code>useTransition</code> helps keep the UI responsive during route
+        changes.
       </p>
 
       {examples.map((item, index) => (
@@ -111,7 +186,6 @@ function ReactRouterTransitions() {
         </section>
       ))}
 
-      {/* Animation */}
       <style>
         {`
         .fade-enter {
@@ -140,12 +214,12 @@ function ReactRouterTransitions() {
 /* Navigation */
 /* ------------------------------------------------------------------ */
 
-function Nav({ setRoute }: { setRoute: (r: string) => void }) {
+function Nav({ onNavigate }: { onNavigate: (r: string) => void }) {
   return (
     <nav style={{ display: "flex", gap: 10 }}>
-      <button onClick={() => setRoute("/")}>Home</button>
-      <button onClick={() => setRoute("/about")}>About</button>
-      <button onClick={() => setRoute("/contact")}>Contact</button>
+      <button onClick={() => onNavigate("/")}>Home</button>
+      <button onClick={() => onNavigate("/about")}>About</button>
+      <button onClick={() => onNavigate("/contact")}>Contact</button>
     </nav>
   );
 }
@@ -159,7 +233,8 @@ const codeStyle: React.CSSProperties = {
   color: "#d4d4d4",
   padding: 16,
   borderRadius: 8,
-  maxWidth: 600,
+  maxWidth: 700,
+  whiteSpace: "pre-wrap",
 };
 
 const outputStyle: React.CSSProperties = {
@@ -167,7 +242,7 @@ const outputStyle: React.CSSProperties = {
   padding: 12,
   border: "1px solid #ccc",
   borderRadius: 6,
-  maxWidth: 600,
+  maxWidth: 700,
 };
 
 export default ReactRouterTransitions;

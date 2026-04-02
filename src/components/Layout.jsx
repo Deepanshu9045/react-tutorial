@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "./Sidebar";
 import Dashboard from "../Pages/Dashboard";
-import HelloReact from "../Pages/HelloReact";
+import ReactIntroduction from "../Pages/ReactIntroduction";
+import SPA from "../Pages/SPA";
+import SEO from "../Pages/SEO";
 import JSXIntro from "../Pages/JSXIntro";
 import JSXExpressions from "../Pages/JSXExpressions";
 import JSXAttributes from "../Pages/JSXAttributes";
@@ -35,8 +37,12 @@ const Layout = () => {
     switch (activePage) {
       case "dashboard":
         return <Dashboard />;
-      case "HelloReact":
-        return <HelloReact />;
+      case "Introduction":
+        return <ReactIntroduction />
+      case "SPA":
+        return <SPA />;
+      case "SEO":
+        return <SEO />;
       case "JSXIntro":
         return <JSXIntro />;
       case "JSXExpressions":

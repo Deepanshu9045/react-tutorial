@@ -4,7 +4,9 @@ import "./Sidebar.css";
 const Sidebar = ({ setActivePage, activePage }) => {
   const menuItems = [
     { name: "Dashboard", key: "dashboard" },
-    { name: "Hello React", key: "HelloReact" },
+    { name: "Introduction", key: "Introduction" },
+    { name: "SPA", key: "SPA" },
+    { name: "SEO", key: "SEO" },
     { name: "JSX Intro", key: "JSXIntro" },
     { name: "JSX Expressions", key: "JSXExpressions" },
     { name: "JSX Attributes", key: "JSXAttributes" },
