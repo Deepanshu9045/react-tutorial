@@ -23,6 +23,9 @@ const Sidebar = ({ setActivePage, activePage }) => {
     { name: "React Form Elements", key: "ReactFormSElements"},
     { name: "React Portal & Suspense", key: "ReactPortalSuspense"},
     { name: "React Router & Transitions", key: "ReactRouterTransitions"},
+    { name: "React Forward Refs", key: "ReactForwardRefHOC"},
+    { name: "React Hooks", key: "ReactHooksGuide"},
+
   ];
 
   return (

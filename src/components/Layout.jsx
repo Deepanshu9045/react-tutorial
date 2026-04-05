@@ -20,6 +20,8 @@ import ReactFormSElements from "../Pages/ReactFormElements";
 import ReactLists from "../Pages/ReactLists";
 import ReactPortalSuspense from "../Pages/ReactPortalSuspense";
 import ReactRouterTransitions from "../Pages/ReactRouterTransitions";
+import ReactForwardRefHOC from "../Pages/ReactForwardRefHOC";
+import ReactHooksGuide from "../Pages/ReactHooksGuide";
 
 const Layout = () => {
 
@@ -75,6 +77,10 @@ const Layout = () => {
         return <ReactPortalSuspense/>
       case "ReactRouterTransitions":
         return <ReactRouterTransitions/>
+      case "ReactForwardRefHOC":
+        return <ReactForwardRefHOC/>
+      case "ReactHooksGuide":
+        return <ReactHooksGuide/>
       default:
         return <Dashboard />;
     }
