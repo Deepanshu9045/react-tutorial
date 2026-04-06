@@ -173,10 +173,6 @@ function ReactHooksGuide() {
     return () => window.clearInterval(intervalId);
   }, []);
 
-  useEffect(() => {
-    document.title = `Clicked ${effectCount} times`;
-  }, [effectCount]);
-
   /* ---------------- useContext ---------------- */
   const [theme, setTheme] = useState<Theme>("light");
 
@@ -272,19 +268,17 @@ const [name, setName] = useState("");
   return () => clearInterval(intervalId);
 }, []);
 
-useEffect(() => {
-  document.title = \`Clicked \${effectCount} times\`;
-}, [effectCount]);`}
+const titleDemoText = \`Clicked \${effectCount} times\`;`}
         >
           <div style={outputBoxStyle}>
             <p>Timer running: {seconds} seconds</p>
-            <p>Open the browser tab title and click the button below.</p>
-            <p>Effect count: {effectCount}</p>
+            <p>The browser tab title stays React Tutorial.</p>
+            <p>Title demo text: Clicked {effectCount} times</p>
             <button
               style={buttonStyle}
               onClick={() => setEffectCount((prev) => prev + 1)}
             >
-              Update document title
+              Increase demo count
             </button>
           </div>
         </Section>
